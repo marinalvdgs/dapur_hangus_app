@@ -45,7 +45,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/dish.png
+    - assets/
 
   fonts:
     - family: Hind
