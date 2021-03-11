@@ -27,7 +27,7 @@ class _DHNavigationButtonState extends State<DHNavigationButton> {
             padding: EdgeInsets.all(defaultPadding),
             decoration: BoxDecoration(
               color: widget.isSelected
-                  ? Theme.of(context).primaryColor
+                  ? Theme.of(context).scaffoldBackgroundColor
                   : Colors.transparent,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
@@ -37,8 +37,9 @@ class _DHNavigationButtonState extends State<DHNavigationButton> {
             child: Text(
               widget.title,
               style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color:
-                      widget.isSelected ? null : Theme.of(context).primaryColor,
+                  color: widget.isSelected
+                      ? null
+                      : Theme.of(context).scaffoldBackgroundColor,
                   fontWeight: widget.isSelected ? FontWeight.w700 : null),
             ),
           ),

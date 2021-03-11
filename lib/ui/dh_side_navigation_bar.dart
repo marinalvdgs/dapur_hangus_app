@@ -1,42 +1,39 @@
-import 'package:dapur_hangus_app/screens/receipt_book_page.dart';
 import 'package:dapur_hangus_app/ui/dh_navigation_button.dart';
 import 'package:flutter/material.dart';
 
-const List<String> _titleList = [
-  'Main Course',
-  'Vege',
-  'Soup',
-  'Desserts',
-  'Drinks'
-];
-
 class DHSideNavigationBar extends StatefulWidget {
+  final List<String> items;
+  final Function(int) onSelected;
+  final int currentIndex;
+
+  DHSideNavigationBar(
+      {@required this.items,
+      @required this.onSelected,
+      @required this.currentIndex});
+
   @override
   _DHSideNavigationBarState createState() => _DHSideNavigationBarState();
 }
 
 class _DHSideNavigationBarState extends State<DHSideNavigationBar> {
-  int currentIndex = 0;
-
   void onItemTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
+    widget.onSelected(index);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Theme.of(context).primaryColor,
       width: 90,
       height: MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.end,
-        children: _titleList
+        children: widget.items
             .map((e) => DHNavigationButton(
                   title: e,
-                  isSelected: currentIndex == _titleList.indexOf(e),
-                  onTap: () => onItemTap(_titleList.indexOf(e)),
+                  isSelected: widget.currentIndex == widget.items.indexOf(e),
+                  onTap: () => onItemTap(widget.items.indexOf(e)),
                 ))
             .toList(),
       ),

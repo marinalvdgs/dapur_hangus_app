@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 const double defaultPadding = 16.0;
 
 ThemeData mainTheme = ThemeData(
-  scaffoldBackgroundColor: Color(0xFF0B3364),
-  primaryColor: Color(0xFFFFFFFF),
+  scaffoldBackgroundColor: Color(0xFFFFFFFF),
+  primaryColor: Color(0xFF0B3364),
   fontFamily: 'Hind',
   textTheme: TextTheme(
       headline6: TextStyle(
