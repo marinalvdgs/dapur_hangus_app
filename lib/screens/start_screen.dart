@@ -1,5 +1,6 @@
 import 'package:dapur_hangus_app/screens/receipt_book_page.dart';
 import 'package:flutter/material.dart';
+import 'package:dapur_hangus_app/theme.dart';
 
 class StartScreen extends StatefulWidget {
   @override
@@ -25,7 +26,11 @@ class _StartScreenState extends State<StartScreen> {
           onTap: navigateToReceiptBook,
           child: Ink(
             color: Theme.of(context).primaryColor,
-            padding: EdgeInsets.only(left: 40, right: 32, top: 16, bottom: 16),
+            padding: EdgeInsets.only(
+                left: defaultPadding * 2.5,
+                right: defaultPadding * 2,
+                top: defaultPadding,
+                bottom: defaultPadding),
             child: Center(
               child: Text(
                 'Get Started',
@@ -50,7 +55,8 @@ class _StartScreenState extends State<StartScreen> {
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 32.0, top: 16.0),
+                padding: const EdgeInsets.only(
+                    right: defaultPadding * 2, top: defaultPadding),
                 child: Icon(
                   Icons.person_rounded,
                   color: Theme.of(context).primaryColor,
@@ -59,7 +65,8 @@ class _StartScreenState extends State<StartScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 32, left: 8),
+              padding: const EdgeInsets.only(
+                  top: defaultPadding * 2, left: defaultPadding / 2),
               child: RotatedBox(
                 quarterTurns: -1,
                 child: RichText(
