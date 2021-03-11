@@ -1,7 +1,6 @@
-import 'package:dapur_hangus_app/screens/main_receipt_page.dart';
+import 'package:dapur_hangus_app/theme.dart';
 import 'package:dapur_hangus_app/ui/dh_side_navigation_scaffold.dart';
 import 'package:flutter/material.dart';
-import 'package:dapur_hangus_app/theme.dart';
 
 class StartScreen extends StatefulWidget {
   @override
@@ -61,7 +60,7 @@ class _StartScreenState extends State<StartScreen> {
                     right: defaultPadding * 2, top: defaultPadding),
                 child: Icon(
                   Icons.person_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   size: 32,
                 ),
               ),

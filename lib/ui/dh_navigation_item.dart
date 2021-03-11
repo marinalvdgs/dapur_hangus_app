@@ -38,9 +38,13 @@ class _DHNavigationItemState extends State<DHNavigationItem> {
               curve: Curves.fastOutSlowIn,
               padding: widget.isSelected
                   ? EdgeInsets.symmetric(
-                      vertical: defaultPadding, horizontal: defaultPadding * 2)
+                      vertical: defaultPadding,
+                      horizontal: defaultPadding * 2,
+                    )
                   : EdgeInsets.symmetric(
-                      vertical: defaultPadding / 2, horizontal: defaultPadding),
+                      vertical: defaultPadding / 2,
+                      horizontal: defaultPadding,
+                    ),
               child: Text(
                 widget.title,
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
