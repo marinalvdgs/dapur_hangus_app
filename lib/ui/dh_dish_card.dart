@@ -9,10 +9,11 @@ class DHDishCard extends StatelessWidget {
         maxWidth: MediaQuery.of(context).size.width * 0.6,
         maxHeight: MediaQuery.of(context).size.width * 0.8,
       ),
-      margin: const EdgeInsets.all(defaultPadding),
+      margin: const EdgeInsets.symmetric(
+          vertical: defaultPadding / 2, horizontal: defaultPadding * 2),
       child: DecoratedBox(
         decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.all(Radius.circular(32)),
             boxShadow: [
               BoxShadow(
@@ -59,7 +60,7 @@ class DHDishCard extends StatelessWidget {
                     bottom: defaultPadding * 2, right: defaultPadding),
                 child: Icon(
                   Icons.bookmark_sharp,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   size: 40,
                 ),
               ),
@@ -67,20 +68,25 @@ class DHDishCard extends StatelessWidget {
             Align(
               alignment: Alignment.bottomLeft,
               child: Padding(
-                padding: const EdgeInsets.only(left: defaultPadding, bottom: defaultPadding, right: defaultPadding*5),
+                padding: const EdgeInsets.only(
+                    left: defaultPadding,
+                    bottom: defaultPadding,
+                    right: defaultPadding * 5),
                 child: RichText(
                   maxLines: 3,
                   text: TextSpan(
                       text: 'Nasi Lemak Chicken Rendang',
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontWeight: FontWeight.w500, color: Colors.white, height: 1),
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          height: 1),
                       children: [
                         TextSpan(
                           text: '\nMalay Cuisine',
                           style: Theme.of(context)
                               .textTheme
                               .bodyText2
-                              .copyWith(color: Colors.white, height:1 ),
+                              .copyWith(color: Colors.white, height: 1),
                         )
                       ]),
                 ),

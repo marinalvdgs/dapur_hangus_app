@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 class DHTabBarScaffold extends StatefulWidget {
   final String title;
   final List<String> tabsTitle;
+  final List<Widget> tabsBody;
 
-  DHTabBarScaffold({@required this.title, @required this.tabsTitle});
+  DHTabBarScaffold(
+      {@required this.title,
+      @required this.tabsTitle,
+      @required this.tabsBody});
 
   @override
   _DHTabBarScaffoldState createState() => _DHTabBarScaffoldState();
@@ -66,6 +70,7 @@ class _DHTabBarScaffoldState extends State<DHTabBarScaffold> {
                         ))
                     .toList(),
               ),
+              Expanded(child: TabBarView(children: widget.tabsBody))
             ],
           ),
         ),
