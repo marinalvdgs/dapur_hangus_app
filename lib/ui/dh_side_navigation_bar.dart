@@ -49,7 +49,7 @@ class _DHSideNavigationBarState extends State<DHSideNavigationBar> {
                     ))
                 .toList(),
             SizedBox(
-              height: 60,
+              height: MediaQuery.of(context).size.height/10,
             )
           ]),
     );
