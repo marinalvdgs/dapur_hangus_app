@@ -1,6 +1,6 @@
-import 'package:dapur_hangus_app/screens/receipt_book_page.dart';
-import 'package:flutter/material.dart';
 import 'package:dapur_hangus_app/theme.dart';
+import 'package:dapur_hangus_app/ui/dh_side_navigation_scaffold.dart';
+import 'package:flutter/material.dart';
 
 class StartScreen extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   void navigateToReceiptBook() {
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (BuildContext context) => ReceiptBookPage()));
+        builder: (BuildContext context) => DHSideNavigationScaffold()));
   }
 
   Widget buildButton() {
@@ -25,7 +25,7 @@ class _StartScreenState extends State<StartScreen> {
         child: InkWell(
           onTap: navigateToReceiptBook,
           child: Ink(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).scaffoldBackgroundColor,
             padding: EdgeInsets.only(
                 left: defaultPadding * 2.5,
                 right: defaultPadding * 2,
@@ -49,6 +49,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -59,7 +60,7 @@ class _StartScreenState extends State<StartScreen> {
                     right: defaultPadding * 2, top: defaultPadding),
                 child: Icon(
                   Icons.person_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   size: 32,
                 ),
               ),
