@@ -8,6 +8,7 @@ class MainReceiptPage extends StatefulWidget {
 }
 
 class _MainReceiptPageState extends State<MainReceiptPage> {
+  String title = 'Want To Try New Recipe Today ?';
   List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
   List<Widget> tabsBody = List.filled(
       4,
@@ -18,7 +19,7 @@ class _MainReceiptPageState extends State<MainReceiptPage> {
   @override
   Widget build(BuildContext context) {
     return DHTabBarScaffold(
-      title: 'Want To Try New Recipe Today ?',
+      title: title,
       tabsTitle: tabsTitle,
       tabsBody: tabsBody,
     );

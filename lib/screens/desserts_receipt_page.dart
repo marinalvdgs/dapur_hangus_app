@@ -1,3 +1,5 @@
+import 'package:dapur_hangus_app/ui/dh_dish_card.dart';
+import 'package:dapur_hangus_app/ui/dh_tabbar_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class DessertReceiptPage extends StatefulWidget {
@@ -6,12 +8,20 @@ class DessertReceiptPage extends StatefulWidget {
 }
 
 class _DessertReceiptPageState extends State<DessertReceiptPage> {
+  String title = 'Want To Try New Recipe Today ?';
+  List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
+  List<Widget> tabsBody = List.filled(
+      4,
+      ListView(
+        children: List.filled(4, DHDishCard()),
+      ));
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('4'),
-      ),
+    return DHTabBarScaffold(
+      title: title,
+      tabsTitle: tabsTitle,
+      tabsBody: tabsBody,
     );
   }
 }

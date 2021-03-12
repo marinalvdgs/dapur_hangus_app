@@ -10,7 +10,7 @@ class DHDishCard extends StatelessWidget {
         maxHeight: MediaQuery.of(context).size.width * 0.8,
       ),
       margin: const EdgeInsets.symmetric(
-          vertical: defaultPadding / 2, horizontal: defaultPadding * 2),
+          vertical: defaultPadding * 0.75, horizontal: defaultPadding * 2),
       child: DecoratedBox(
         decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
