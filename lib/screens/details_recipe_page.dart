@@ -187,12 +187,9 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
               ],
             ),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 3,
-            child: DHRecipeTabBar(
-                tabsTitle: tabs,
-                tabsBody: tabs.map((e) => buildTextContainer()).toList()),
-          )
+          DHRecipeTabBar(
+              tabsTitle: tabs,
+              tabsBody: tabs.map((e) => buildTextContainer()).toList())
         ],
       ),
       bottomNavigationBar: buildBottomPanel(),

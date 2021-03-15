@@ -38,6 +38,7 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
   @override
   void dispose() {
     super.dispose();
+    _tabController.animation.removeListener(changeIndex);
     _tabController.dispose();
   }
 
@@ -78,11 +79,9 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
               ),
             ),
             // tab bar view here
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: widget.tabsBody,
-              ),
+            IndexedStack(
+              children:
+                  widget.tabsBody.map((e) => Visibility(child: e)).toList(),
             ),
           ],
         ),
