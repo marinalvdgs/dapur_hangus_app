@@ -1,3 +1,4 @@
+import 'package:dapur_hangus_app/screens/details_recipe_page.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class DHDishCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Color(0xFF11538C),
                     borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(defaultPadding),
+                        bottomRight: defaultRadius,
                         topLeft: Radius.circular(defaultPadding * 2))),
                 child: RotatedBox(
                   quarterTurns: -1,
@@ -98,7 +99,19 @@ class DHDishCard extends StatelessWidget {
                 child: Image.asset(
                   'assets/dish.png',
                   height: MediaQuery.of(context).size.width * 0.6,
-                ))
+                )),
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(32)),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => DetailsRecipePage()));
+                  },
+                ),
+              ),
+            )
           ],
         ),
       ),

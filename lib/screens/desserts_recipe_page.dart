@@ -2,12 +2,12 @@ import 'package:dapur_hangus_app/ui/dh_dish_card.dart';
 import 'package:dapur_hangus_app/ui/dh_tabbar_scaffold.dart';
 import 'package:flutter/material.dart';
 
-class MainReceiptPage extends StatefulWidget {
+class DessertRecipePage extends StatefulWidget {
   @override
-  _MainReceiptPageState createState() => _MainReceiptPageState();
+  _DessertRecipePageState createState() => _DessertRecipePageState();
 }
 
-class _MainReceiptPageState extends State<MainReceiptPage> {
+class _DessertRecipePageState extends State<DessertRecipePage> {
   String title = 'Want To Try New Recipe Today ?';
   List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
   List<Widget> tabsBody = List.filled(
