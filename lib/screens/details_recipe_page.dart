@@ -58,6 +58,73 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
     );
   }
 
+  Widget buildBottomPanel() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 70,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius: const BorderRadius.only(topRight: defaultRadius),
+            ),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+                child: Icon(
+                  Icons.bookmark_sharp,
+                  color: Theme.of(context).primaryColor,
+                  size: 40,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: defaultPadding * 2.5),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: const BorderRadius.all(defaultRadius),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: defaultPadding * 4),
+                      child: Text(
+                        'Watch Demo',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText2
+                            .copyWith(fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    SizedBox(
+                      width: defaultPadding * 2.5,
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(right: defaultPadding * 1.5),
+                      child: Image.asset(
+                        'assets/video-player.png',
+                        color: Theme.of(context).primaryColor,
+                        height: 24,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,6 +195,7 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
           )
         ],
       ),
+      bottomNavigationBar: buildBottomPanel(),
     );
   }
 }
