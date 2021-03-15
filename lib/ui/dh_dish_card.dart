@@ -32,7 +32,7 @@ class DHDishCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Color(0xFF11538C),
                     borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(defaultPadding),
+                        bottomRight: defaultRadius,
                         topLeft: Radius.circular(defaultPadding * 2))),
                 child: RotatedBox(
                   quarterTurns: -1,
