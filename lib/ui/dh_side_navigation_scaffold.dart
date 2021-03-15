@@ -1,8 +1,8 @@
-import 'package:dapur_hangus_app/screens/desserts_receipt_page.dart';
-import 'package:dapur_hangus_app/screens/drink_receipt_page.dart';
-import 'package:dapur_hangus_app/screens/main_receipt_page.dart';
-import 'package:dapur_hangus_app/screens/soup_receipt_page.dart';
-import 'package:dapur_hangus_app/screens/vege_receipt_page.dart';
+import 'package:dapur_hangus_app/screens/desserts_recipe_page.dart';
+import 'package:dapur_hangus_app/screens/drink_recipe_page.dart';
+import 'package:dapur_hangus_app/screens/main_recipe_page.dart';
+import 'package:dapur_hangus_app/screens/soup_recipe_page.dart';
+import 'package:dapur_hangus_app/screens/vege_recipe_page.dart';
 import 'package:dapur_hangus_app/ui/dh_side_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -26,15 +26,15 @@ class _DHSideNavigationScaffoldState extends State<DHSideNavigationScaffold> {
   Widget buildBody(int index) {
     switch (index) {
       case 0:
-        return MainReceiptPage();
+        return MainRecipePage();
       case 1:
-        return VegeReceiptPage();
+        return VegeRecipePage();
       case 2:
-        return SoupReceiptPage();
+        return SoupRecipePage();
       case 3:
-        return DessertReceiptPage();
+        return DessertRecipePage();
       case 4:
-        return DrinkReceiptPage();
+        return DrinkRecipePage();
     }
     throw Exception('Invalid page');
   }
