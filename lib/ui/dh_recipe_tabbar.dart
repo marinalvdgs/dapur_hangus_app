@@ -54,6 +54,7 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: defaultPadding / 2),
         child: Column(

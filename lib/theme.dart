@@ -20,7 +20,15 @@ ThemeData mainTheme = ThemeData(
       ),
       headline4: TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 20
+        fontSize: 20,
+      ),
+      subtitle1: TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 22,
+      ),
+      subtitle2: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 12,
       ),
       bodyText1: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
       bodyText2: TextStyle(
