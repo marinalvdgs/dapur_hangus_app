@@ -46,6 +46,18 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
     );
   }
 
+  Widget buildTextContainer() {
+    return Container(
+      margin: EdgeInsets.symmetric(
+          horizontal: defaultPadding * 2.5, vertical: defaultPadding / 2),
+      child: Text(
+        '1 kg Chicken\n1 tbsp (15g) salt\n1 cup (85g) kerisik\n1 cup (250ml) coconut milk\n1 piece (about 5 cm) cinnamon bark\n1 star anise\n4 cloves',
+        style:
+            Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.white),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,9 +121,10 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
             ),
           ),
           SizedBox(
-            height: 100,
+            height: MediaQuery.of(context).size.height / 3,
             child: DHRecipeTabBar(
-                tabsTitle: tabs, tabsBody: tabs.map((e) => Text(e)).toList()),
+                tabsTitle: tabs,
+                tabsBody: tabs.map((e) => buildTextContainer()).toList()),
           )
         ],
       ),
