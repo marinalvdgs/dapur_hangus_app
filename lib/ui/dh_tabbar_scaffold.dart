@@ -17,6 +17,34 @@ class DHTabBarScaffold extends StatefulWidget {
 }
 
 class _DHTabBarScaffoldState extends State<DHTabBarScaffold> {
+  final List<Widget> tabs = [];
+  final Map<String, GlobalKey> tabsKeys = {};
+  double tabPadding = 0;
+
+  @override
+  void initState() {
+    widget.tabsTitle.forEach((tab) => tabsKeys[tab] = GlobalKey());
+    tabs.addAll(widget.tabsTitle.map((tab) => Container(
+        key: tabsKeys[tab],
+        child: Tab(
+          text: tab,
+        ))));
+    WidgetsBinding.instance
+        .addPostFrameCallback((Duration d) => calculateTabBarPadding);
+    super.initState();
+  }
+
+  void calculateTabBarPadding() {
+    setState(() {
+      final screenWidth = MediaQuery.of(context).size.width;
+      final tabBarWidth = tabsKeys.values
+          .fold(0, (prev, tab) => prev + tab.currentContext.size.width);
+      tabPadding = tabBarWidth < screenWidth
+          ? ((screenWidth - tabBarWidth) / widget.tabsTitle.length) / 2
+          : 16.0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,7 +70,7 @@ class _DHTabBarScaffoldState extends State<DHTabBarScaffold> {
                   decoration: InputDecoration(
                       contentPadding:
                           const EdgeInsets.only(left: 0.0, top: defaultPadding),
-                      hintText: 'Search fo recipe...',
+                      hintText: 'Search for recipe...',
                       hintStyle: Theme.of(context).textTheme.bodyText2.copyWith(
                             color:
                                 Theme.of(context).primaryColor.withOpacity(0.8),
@@ -64,6 +92,7 @@ class _DHTabBarScaffoldState extends State<DHTabBarScaffold> {
                     .bodyText2
                     .copyWith(fontWeight: FontWeight.w700),
                 unselectedLabelStyle: Theme.of(context).textTheme.bodyText2,
+                labelPadding: EdgeInsets.symmetric(horizontal: tabPadding),
                 tabs: widget.tabsTitle
                     .map((e) => Tab(
                           text: e,

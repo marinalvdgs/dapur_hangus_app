@@ -80,6 +80,7 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
             ),
             // tab bar view here
             IndexedStack(
+              index: currentIndex,
               children:
                   widget.tabsBody.map((e) => Visibility(child: e)).toList(),
             ),
