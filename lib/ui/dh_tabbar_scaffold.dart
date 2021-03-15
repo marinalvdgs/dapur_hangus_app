@@ -93,11 +93,7 @@ class _DHTabBarScaffoldState extends State<DHTabBarScaffold> {
                     .copyWith(fontWeight: FontWeight.w700),
                 unselectedLabelStyle: Theme.of(context).textTheme.bodyText2,
                 labelPadding: EdgeInsets.symmetric(horizontal: tabPadding),
-                tabs: widget.tabsTitle
-                    .map((e) => Tab(
-                          text: e,
-                        ))
-                    .toList(),
+                tabs: tabs,
               ),
               Expanded(child: TabBarView(children: widget.tabsBody))
             ],
