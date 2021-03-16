@@ -98,13 +98,6 @@ class DHDishCard extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-                right: -defaultPadding * 2,
-                top: defaultPadding / 2,
-                child: Image.asset(
-                  image,
-                  height: MediaQuery.of(context).size.width * 0.6,
-                )),
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(32)),
               child: Material(
@@ -119,7 +112,14 @@ class DHDishCard extends StatelessWidget {
                   },
                 ),
               ),
-            )
+            ),
+            Positioned(
+                right: -defaultPadding * 2,
+                top: defaultPadding / 2,
+                child: Image.asset(
+                  image,
+                  height: MediaQuery.of(context).size.width * 0.6,
+                )),
           ],
         ),
       ),
