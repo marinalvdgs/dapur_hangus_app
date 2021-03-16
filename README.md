@@ -1,17 +1,32 @@
 # dapur_hangus_app
 
-A new Flutter application.
+This is demo flutter project for practice in UI implementation and skills development.
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+This project implement the design found on [Behance](https://www.behance.net/gallery/100776963/Dapur-Hangus-UI-App).
+I only used [Flutter SDK](https://flutter.dev/) for this.
 
-A few resources to get you started if this is your first Flutter project:
+For implementing side navigation bar I created my own custom template scaffold with custom navigation bar on the left side and expanding body on the right side.
+On detailed recipe screen I also had to implement custom tabs and indicator for TabBar widget.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## How it looks
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# dapur_hangus_app
+### Start screen
+![welcome](welcome.png)
+
+### Main screen
+
+![main](main.png)
+![side](side_navigation.gif)
+![tabbar](tabbar_navigation.gif)
+
+### Recipe screen
+
+![recipe](recipe.png)
+
+## Resources 
+
+- Icons - [flaticon](https://www.flaticon.com/)
+- Font - [Google Fonts](https://fonts.google.com/)
+- images - [pngkey](https://www.pngkey.com/)

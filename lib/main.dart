@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dapur Hangus',
       theme: mainTheme,
+      debugShowCheckedModeBanner: false,
       home: StartScreen(),
     );
   }
