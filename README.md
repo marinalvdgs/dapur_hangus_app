@@ -17,7 +17,6 @@ On detailed recipe screen I also had to implement custom tabs and indicator for 
 
 ### Main screen
 
-![main](main.png)
 ![side](side_navigation.gif)
 ![tabbar](tabbar_navigation.gif)
 
