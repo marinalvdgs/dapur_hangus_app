@@ -4,7 +4,7 @@ This is demo flutter project for practice in UI implementation and skills develo
 
 ## About
 
-This project implement the design found on [Behance](https://www.behance.net/gallery/100776963/Dapur-Hangus-UI-App).
+This project implements the design found on [Behance](https://www.behance.net/gallery/100776963/Dapur-Hangus-UI-App).
 I only used [Flutter SDK](https://flutter.dev/) for this.
 
 For implementing side navigation bar I created my own custom template scaffold with custom navigation bar on the left side and expanding body on the right side.
