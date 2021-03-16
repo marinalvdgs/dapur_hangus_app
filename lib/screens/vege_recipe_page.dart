@@ -10,8 +10,8 @@ class VegeRecipePage extends StatefulWidget {
 }
 
 class _VegeRecipePageState extends State<VegeRecipePage> {
-  String title = 'Want To Try New Recipe Today ?';
-  List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
+  String title = 'Want To Try Vege Recipe Today ?';
+  List<String> tabsTitle = ['Thai', 'Indian', 'Japanese', 'Others'];
   List<Widget> tabsBody = List.filled(
       4,
       ListView(

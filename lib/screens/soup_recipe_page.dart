@@ -9,8 +9,8 @@ class SoupRecipePage extends StatefulWidget {
 }
 
 class _SoupRecipePageState extends State<SoupRecipePage> {
-  String title = 'Want To Try New Recipe Today ?';
-  List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
+  String title = 'Want To Try New Soup Today ?';
+  List<String> tabsTitle = ['Cream', 'Chinese', 'Malay', 'Others'];
   List<Widget> tabsBody = List.filled(
       4,
       ListView(
