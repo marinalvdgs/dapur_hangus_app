@@ -27,6 +27,8 @@ const String ingredients =
 const String review =
     'Looks yummy ! Went out early this morning n got the required ingredients. Will be cooking it for dinner. Am sure it will taste as good as it looks.\nThanks for sharing recipe.:-)';
 
+const double bottomHeight = 70;
+
 class _DetailsRecipePageState extends State<DetailsRecipePage> {
   void navigateBack() {
     Navigator.of(context).pop();
@@ -72,7 +74,18 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
   Widget buildBottomPanel() {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 70,
+      height: bottomHeight + defaultPadding * 3,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: [
+            Theme.of(context).primaryColor,
+            Theme.of(context).primaryColor.withOpacity(0.0),
+          ],
+        ),
+      ),
+      padding: const EdgeInsets.only(top: defaultPadding * 3),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,78 +153,88 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
+      body: Stack(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.35,
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: defaultPadding, top: defaultPadding),
-                    child: IconButton(
-                        icon: Image.asset(
-                          'assets/back-button.png',
-                          color: Colors.white,
-                        ),
-                        onPressed: navigateBack),
-                  ),
+          ListView(
+            padding: EdgeInsets.only(
+                bottom: bottomHeight, top: MediaQuery.of(context).padding.top),
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.35,
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: defaultPadding, top: defaultPadding),
+                        child: IconButton(
+                            icon: Image.asset(
+                              'assets/back-button.png',
+                              color: Colors.white,
+                            ),
+                            onPressed: navigateBack),
+                      ),
+                    ),
+                    Positioned(
+                        top: -MediaQuery.of(context).size.width / 7,
+                        right: -MediaQuery.of(context).size.width / 5,
+                        child: Image.asset(
+                          widget.image,
+                          height: MediaQuery.of(context).size.height * 0.45,
+                        )),
+                  ],
                 ),
-                Positioned(
-                    top: -MediaQuery.of(context).size.width / 7,
-                    right: -MediaQuery.of(context).size.width / 5,
-                    child: Image.asset(
-                      widget.image,
-                      height: MediaQuery.of(context).size.height * 0.45,
-                    )),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: defaultPadding, horizontal: defaultPadding * 2.5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: defaultPadding / 2),
-                  child: Text(
-                    widget.title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle1
-                        .copyWith(color: Colors.white, height: 1),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: defaultPadding, horizontal: defaultPadding * 2.5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: defaultPadding / 2),
+                      child: Text(
+                        widget.title,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .copyWith(color: Colors.white, height: 1),
+                      ),
+                    ),
+                    Text(
+                      'Nasi Lemak is a Malay fragrant rice dish cooked in coconut milk and pandan leaf. Served with boiled egg. peanuts, anchovies,cucumber slices and spicy sambal. Chicken rendang is slow cooked and stewed in the rendang sauce and this chicken rendang recipe yields flavorful and tender chicken, with complex structure of flavors, with the intense aroma of the exotic spices.',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText2
+                          .copyWith(color: Colors.white, height: 1),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: icons.keys
+                          .map((e) => buildShortInfoBlock(icons[e], e))
+                          .toList(),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Nasi Lemak is a Malay fragrant rice dish cooked in coconut milk and pandan leaf. Served with boiled egg. peanuts, anchovies,cucumber slices and spicy sambal. Chicken rendang is slow cooked and stewed in the rendang sauce and this chicken rendang recipe yields flavorful and tender chicken, with complex structure of flavors, with the intense aroma of the exotic spices.',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      .copyWith(color: Colors.white, height: 1),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: icons.keys
-                      .map((e) => buildShortInfoBlock(icons[e], e))
-                      .toList(),
-                ),
-              ],
-            ),
-          ),
-          DHRecipeTabBar(
-            tabsTitle: tabs,
-            tabsBody: [
-              buildTextContainer(ingredients),
-              buildTextContainer(instructions),
-              buildTextContainer(review),
+              ),
+              DHRecipeTabBar(
+                tabsTitle: tabs,
+                tabsBody: [
+                  buildTextContainer(ingredients),
+                  buildTextContainer(instructions),
+                  buildTextContainer(review),
+                ],
+              ),
             ],
+          ),
+          Positioned(
+            bottom: 0,
+            child: buildBottomPanel(),
           ),
         ],
       ),
-      bottomNavigationBar: buildBottomPanel(),
     );
   }
 }
