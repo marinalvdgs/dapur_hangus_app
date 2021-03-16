@@ -4,6 +4,24 @@ import 'package:flutter/material.dart';
 const double defaultPadding = 16.0;
 const Radius defaultRadius = Radius.circular(16);
 
+const List<String> dishes = [
+  'assets/dish.png',
+  'assets/dish1.png',
+  'assets/dish2.png',
+  'assets/dish3.png',
+  'assets/dish4.png',
+  'assets/dish5.png',
+];
+
+const List<String> titles = [
+  'Nasi Lemak Chicken Rendang',
+  'Nasi Goreng Kampung',
+  'Mee Goreng',
+  'Pan Mee (Hakka Flat Noodle Soup)',
+  'Nasi Ulam (Malaysian Mixed Herb Rice)',
+  'Kaya (Malaysian Coconut Egg Jam)'
+];
+
 ThemeData mainTheme = ThemeData(
   scaffoldBackgroundColor: Color(0xFFFFFFFF),
   primaryColor: Color(0xFF0B3364),

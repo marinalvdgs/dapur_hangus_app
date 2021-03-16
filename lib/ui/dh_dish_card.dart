@@ -3,6 +3,11 @@ import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
 class DHDishCard extends StatelessWidget {
+  final String image;
+  final String title;
+
+  DHDishCard({@required this.image, @required this.title});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -76,7 +81,7 @@ class DHDishCard extends StatelessWidget {
                 child: RichText(
                   maxLines: 3,
                   text: TextSpan(
-                      text: 'Nasi Lemak Chicken Rendang',
+                      text: title,
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -97,7 +102,7 @@ class DHDishCard extends StatelessWidget {
                 right: -defaultPadding * 2,
                 top: defaultPadding / 2,
                 child: Image.asset(
-                  'assets/dish.png',
+                  image,
                   height: MediaQuery.of(context).size.width * 0.6,
                 )),
             ClipRRect(
@@ -107,7 +112,10 @@ class DHDishCard extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => DetailsRecipePage()));
+                        builder: (BuildContext context) => DetailsRecipePage(
+                              image: image,
+                              title: title,
+                            )));
                   },
                 ),
               ),

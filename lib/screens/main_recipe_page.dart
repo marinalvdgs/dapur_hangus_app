@@ -1,3 +1,4 @@
+import 'package:dapur_hangus_app/theme.dart';
 import 'package:dapur_hangus_app/ui/dh_dish_card.dart';
 import 'package:dapur_hangus_app/ui/dh_tabbar_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,12 @@ class _MainRecipePageState extends State<MainRecipePage> {
   List<Widget> tabsBody = List.filled(
       4,
       ListView(
-        children: List.filled(4, DHDishCard()),
+        children: [
+          DHDishCard(image: dishes[0], title: titles[0],),
+          DHDishCard(image: dishes[1], title: titles[1],),
+          DHDishCard(image: dishes[0], title: titles[0],),
+          DHDishCard(image: dishes[1], title: titles[1],),
+        ],
       ));
 
   @override

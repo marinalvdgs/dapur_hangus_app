@@ -4,6 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRecipePage extends StatefulWidget {
+  final String image;
+  final String title;
+
+  DetailsRecipePage({@required this.image, @required this.title});
+
   @override
   _DetailsRecipePageState createState() => _DetailsRecipePageState();
 }
@@ -15,6 +20,12 @@ const Map<String, String> icons = {
   '420 calories': 'assets/restaurant.png',
   'Difficult': 'assets/contrast.png'
 };
+const String instructions =
+    '1. Toast your bread and cut out the crust. You can keep the crust if you like. Cut the bread into two pieces and spread a nice layer of kaya jam on top of the bread.\n2. Cut a thin piece of cold butter and put on top of the toast. Make sure the butter is cold so it\'s easier to cut.\n3. The other half of the bread ready to go on top.';
+const String ingredients =
+    '1 kg Chicken\n1 tbsp (15g) salt\n1 cup (85g) kerisik\n1 cup (250ml) coconut milk\n1 piece (about 5 cm) cinnamon bark\n1 star anise\n4 cloves';
+const String review =
+    'Looks yummy ! Went out early this morning n got the required ingredients. Will be cooking it for dinner. Am sure it will taste as good as it looks.\nThanks for sharing recipe.:-)';
 
 class _DetailsRecipePageState extends State<DetailsRecipePage> {
   void navigateBack() {
@@ -46,12 +57,12 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
     );
   }
 
-  Widget buildTextContainer() {
+  Widget buildTextContainer(String text) {
     return Container(
       margin: EdgeInsets.symmetric(
           horizontal: defaultPadding * 2.5, vertical: defaultPadding / 2),
       child: Text(
-        '1 kg Chicken\n1 tbsp (15g) salt\n1 cup (85g) kerisik\n1 cup (250ml) coconut milk\n1 piece (about 5 cm) cinnamon bark\n1 star anise\n4 cloves',
+        text,
         style:
             Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.white),
       ),
@@ -152,7 +163,7 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
                     top: -MediaQuery.of(context).size.width / 7,
                     right: -MediaQuery.of(context).size.width / 5,
                     child: Image.asset(
-                      'assets/dish.png',
+                      widget.image,
                       height: MediaQuery.of(context).size.height * 0.45,
                     )),
               ],
@@ -164,12 +175,15 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Nasi Lemak Chicken Rendang',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: defaultPadding / 2),
+                  child: Text(
+                    widget.title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.white, height: 1),
+                  ),
                 ),
                 Text(
                   'Nasi Lemak is a Malay fragrant rice dish cooked in coconut milk and pandan leaf. Served with boiled egg. peanuts, anchovies,cucumber slices and spicy sambal. Chicken rendang is slow cooked and stewed in the rendang sauce and this chicken rendang recipe yields flavorful and tender chicken, with complex structure of flavors, with the intense aroma of the exotic spices.',
@@ -188,8 +202,13 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
             ),
           ),
           DHRecipeTabBar(
-              tabsTitle: tabs,
-              tabsBody: tabs.map((e) => buildTextContainer()).toList())
+            tabsTitle: tabs,
+            tabsBody: [
+              buildTextContainer(ingredients),
+              buildTextContainer(instructions),
+              buildTextContainer(review),
+            ],
+          ),
         ],
       ),
       bottomNavigationBar: buildBottomPanel(),
