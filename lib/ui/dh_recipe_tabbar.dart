@@ -71,11 +71,7 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
                 labelColor: Theme.of(context).primaryColor,
                 unselectedLabelColor: Color(0xFF476385),
                 labelStyle: Theme.of(context).textTheme.headline4,
-                tabs: widget.tabsTitle
-                    .map((e) => Tab(
-                          text: e,
-                        ))
-                    .toList(),
+                tabs: widget.tabsTitle.map((e) => Text(e)).toList(),
               ),
             ),
             // tab bar view here
