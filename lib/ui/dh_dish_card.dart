@@ -3,6 +3,10 @@ import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
 class DHDishCard extends StatelessWidget {
+  final String image;
+
+  DHDishCard({@required this.image});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -97,7 +101,7 @@ class DHDishCard extends StatelessWidget {
                 right: -defaultPadding * 2,
                 top: defaultPadding / 2,
                 child: Image.asset(
-                  'assets/dish.png',
+                  image,
                   height: MediaQuery.of(context).size.width * 0.6,
                 )),
             ClipRRect(
@@ -107,7 +111,8 @@ class DHDishCard extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => DetailsRecipePage()));
+                        builder: (BuildContext context) =>
+                            DetailsRecipePage(image: image,)));
                   },
                 ),
               ),

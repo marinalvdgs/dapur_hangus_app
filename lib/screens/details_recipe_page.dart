@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRecipePage extends StatefulWidget {
+  final String image;
+
+  DetailsRecipePage({@required this.image});
+
   @override
   _DetailsRecipePageState createState() => _DetailsRecipePageState();
 }
@@ -152,7 +156,7 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
                     top: -MediaQuery.of(context).size.width / 7,
                     right: -MediaQuery.of(context).size.width / 5,
                     child: Image.asset(
-                      'assets/dish.png',
+                      widget.image,
                       height: MediaQuery.of(context).size.height * 0.45,
                     )),
               ],

@@ -4,6 +4,15 @@ import 'package:flutter/material.dart';
 const double defaultPadding = 16.0;
 const Radius defaultRadius = Radius.circular(16);
 
+const List<String> dishes = [
+  'assets/dish.png',
+  'assets/dish1.png',
+  'assets/dish2.png',
+  'assets/dish3.png',
+  'assets/dish4.png',
+  'assets/dish5.png',
+];
+
 ThemeData mainTheme = ThemeData(
   scaffoldBackgroundColor: Color(0xFFFFFFFF),
   primaryColor: Color(0xFF0B3364),
