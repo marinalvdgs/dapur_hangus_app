@@ -13,6 +13,15 @@ const List<String> dishes = [
   'assets/dish5.png',
 ];
 
+const List<String> titles = [
+  'Nasi Lemak Chicken Rendang',
+  'Nasi Goreng Kampung',
+  'Mee Goreng',
+  'Pan Mee (Hakka Flat Noodle Soup)',
+  'Nasi Ulam (Malaysian Mixed Herb Rice)',
+  'Kaya (Malaysian Coconut Egg Jam)'
+];
+
 ThemeData mainTheme = ThemeData(
   scaffoldBackgroundColor: Color(0xFFFFFFFF),
   primaryColor: Color(0xFF0B3364),

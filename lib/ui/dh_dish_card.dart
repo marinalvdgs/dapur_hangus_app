@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class DHDishCard extends StatelessWidget {
   final String image;
+  final String title;
 
-  DHDishCard({@required this.image});
+  DHDishCard({@required this.image, @required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +81,7 @@ class DHDishCard extends StatelessWidget {
                 child: RichText(
                   maxLines: 3,
                   text: TextSpan(
-                      text: 'Nasi Lemak Chicken Rendang',
+                      text: title,
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -111,8 +112,10 @@ class DHDishCard extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            DetailsRecipePage(image: image,)));
+                        builder: (BuildContext context) => DetailsRecipePage(
+                              image: image,
+                              title: title,
+                            )));
                   },
                 ),
               ),

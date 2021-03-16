@@ -16,10 +16,10 @@ class _VegeRecipePageState extends State<VegeRecipePage> {
       4,
       ListView(
         children: [
-          DHDishCard(image: dishes[1]),
-          DHDishCard(image: dishes[2]),
-          DHDishCard(image: dishes[1]),
-          DHDishCard(image: dishes[2]),
+          DHDishCard(image: dishes[1], title: titles[1],),
+          DHDishCard(image: dishes[2], title: titles[2],),
+          DHDishCard(image: dishes[1], title: titles[1],),
+          DHDishCard(image: dishes[2], title: titles[2],),
         ],
       ));
 

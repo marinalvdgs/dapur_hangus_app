@@ -15,10 +15,10 @@ class _SoupRecipePageState extends State<SoupRecipePage> {
       4,
       ListView(
         children: [
-          DHDishCard(image: dishes[2]),
-          DHDishCard(image: dishes[3]),
-          DHDishCard(image: dishes[2]),
-          DHDishCard(image: dishes[3]),
+          DHDishCard(image: dishes[2], title: titles[2],),
+          DHDishCard(image: dishes[3], title: titles[3],),
+          DHDishCard(image: dishes[2], title: titles[2],),
+          DHDishCard(image: dishes[3], title: titles[3],),
         ],
       ));
 

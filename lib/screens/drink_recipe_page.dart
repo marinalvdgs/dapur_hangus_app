@@ -15,10 +15,10 @@ class _DrinkRecipePageState extends State<DrinkRecipePage> {
       4,
       ListView(
         children: [
-          DHDishCard(image: dishes[4]),
-          DHDishCard(image: dishes[5]),
-          DHDishCard(image: dishes[4]),
-          DHDishCard(image: dishes[5]),
+          DHDishCard(image: dishes[4], title: titles[4],),
+          DHDishCard(image: dishes[5], title: titles[5],),
+          DHDishCard(image: dishes[4], title: titles[4],),
+          DHDishCard(image: dishes[5], title: titles[5],),
         ],
       ));
 

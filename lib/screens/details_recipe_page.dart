@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class DetailsRecipePage extends StatefulWidget {
   final String image;
+  final String title;
 
-  DetailsRecipePage({@required this.image});
+  DetailsRecipePage({@required this.image, @required this.title});
 
   @override
   _DetailsRecipePageState createState() => _DetailsRecipePageState();
@@ -168,12 +169,15 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Nasi Lemak Chicken Rendang',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: defaultPadding / 2),
+                  child: Text(
+                    widget.title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.white, height: 1),
+                  ),
                 ),
                 Text(
                   'Nasi Lemak is a Malay fragrant rice dish cooked in coconut milk and pandan leaf. Served with boiled egg. peanuts, anchovies,cucumber slices and spicy sambal. Chicken rendang is slow cooked and stewed in the rendang sauce and this chicken rendang recipe yields flavorful and tender chicken, with complex structure of flavors, with the intense aroma of the exotic spices.',
