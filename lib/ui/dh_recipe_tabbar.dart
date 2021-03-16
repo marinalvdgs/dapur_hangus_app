@@ -21,16 +21,16 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
   void initState() {
     _tabController =
         TabController(length: widget.tabsTitle.length, vsync: this);
-    _tabController.animation.addListener(changeIndex);
+    _tabController.addListener(changeIndex);
     lastIndex = widget.tabsTitle.length - 1;
     super.initState();
   }
 
   void changeIndex() {
-    int value = _tabController.animation.value.round();
-    if (value != currentIndex) {
+    if (_tabController.indexIsChanging &&
+        _tabController.index != currentIndex) {
       setState(() {
-        currentIndex = value;
+        currentIndex = _tabController.index;
       });
     }
   }
@@ -38,7 +38,7 @@ class _DHRecipeTabBarState extends State<DHRecipeTabBar>
   @override
   void dispose() {
     super.dispose();
-    _tabController.animation.removeListener(changeIndex);
+    _tabController.removeListener(changeIndex);
     _tabController.dispose();
   }
 
