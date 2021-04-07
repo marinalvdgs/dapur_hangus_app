@@ -1,5 +1,4 @@
 import 'package:dapur_hangus_app/navigation/app_state.dart';
-import 'package:dapur_hangus_app/navigation/inner_route_information_parser.dart';
 import 'package:dapur_hangus_app/navigation/inner_router_delegate.dart';
 import 'package:dapur_hangus_app/ui/dh_side_navigation_bar.dart';
 import 'package:flutter/material.dart';

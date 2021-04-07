@@ -29,7 +29,7 @@ class DHDishCard extends StatelessWidget {
               )
             ]),
         child: Stack(
-          overflow: Overflow.visible,
+          clipBehavior: Clip.none,
           children: [
             Positioned(
               left: 0,

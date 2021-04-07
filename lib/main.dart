@@ -1,6 +1,5 @@
 import 'package:dapur_hangus_app/navigation/recipe_route_information_parser.dart';
 import 'package:dapur_hangus_app/navigation/recipe_router_delegate.dart';
-import 'package:dapur_hangus_app/screens/start_screen.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
