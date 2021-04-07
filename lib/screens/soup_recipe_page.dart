@@ -1,3 +1,4 @@
+import 'package:dapur_hangus_app/models/Dish.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:dapur_hangus_app/ui/dh_dish_card.dart';
 import 'package:dapur_hangus_app/ui/dh_tabbar_scaffold.dart';
@@ -15,10 +16,10 @@ class _SoupRecipePageState extends State<SoupRecipePage> {
       4,
       ListView(
         children: [
-          DHDishCard(image: dishes[2], title: titles[2],),
-          DHDishCard(image: dishes[3], title: titles[3],),
-          DHDishCard(image: dishes[2], title: titles[2],),
-          DHDishCard(image: dishes[3], title: titles[3],),
+          DHDishCard(dish: Dish(id: 9, image: dishes[2], title: titles[2])),
+          DHDishCard(dish: Dish(id: 10, image: dishes[3], title: titles[3])),
+          DHDishCard(dish: Dish(id: 11, image: dishes[2], title: titles[2])),
+          DHDishCard(dish: Dish(id: 12, image: dishes[3], title: titles[3])),
         ],
       ));
 

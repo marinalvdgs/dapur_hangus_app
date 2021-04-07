@@ -1,13 +1,13 @@
+import 'package:dapur_hangus_app/models/Dish.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:dapur_hangus_app/ui/dh_recipe_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailsRecipePage extends StatefulWidget {
-  final String image;
-  final String title;
+  final Dish dish;
 
-  DetailsRecipePage({@required this.image, @required this.title});
+  DetailsRecipePage({@required this.dish});
 
   @override
   _DetailsRecipePageState createState() => _DetailsRecipePageState();
@@ -180,7 +180,7 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
                         top: -MediaQuery.of(context).size.width / 7,
                         right: -MediaQuery.of(context).size.width / 5,
                         child: Image.asset(
-                          widget.image,
+                          widget.dish.image,
                           height: MediaQuery.of(context).size.height * 0.45,
                         )),
                   ],
@@ -196,7 +196,7 @@ class _DetailsRecipePageState extends State<DetailsRecipePage> {
                       padding:
                           const EdgeInsets.only(bottom: defaultPadding / 2),
                       child: Text(
-                        widget.title,
+                        widget.dish.title,
                         style: Theme.of(context)
                             .textTheme
                             .subtitle1

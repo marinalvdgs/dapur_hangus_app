@@ -1,12 +1,12 @@
+import 'package:dapur_hangus_app/models/Dish.dart';
 import 'package:dapur_hangus_app/screens/details_recipe_page.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
 class DHDishCard extends StatelessWidget {
-  final String image;
-  final String title;
+  final Dish dish;
 
-  DHDishCard({@required this.image, @required this.title});
+  DHDishCard({@required this.dish});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class DHDishCard extends StatelessWidget {
                 child: RichText(
                   maxLines: 3,
                   text: TextSpan(
-                      text: title,
+                      text: dish.title,
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -106,8 +106,7 @@ class DHDishCard extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => DetailsRecipePage(
-                              image: image,
-                              title: title,
+                              dish: dish,
                             )));
                   },
                 ),
@@ -117,7 +116,7 @@ class DHDishCard extends StatelessWidget {
                 right: -defaultPadding * 2,
                 top: defaultPadding / 2,
                 child: Image.asset(
-                  image,
+                  dish.image,
                   height: MediaQuery.of(context).size.width * 0.6,
                 )),
           ],
