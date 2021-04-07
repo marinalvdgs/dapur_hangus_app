@@ -5,6 +5,10 @@ import 'package:dapur_hangus_app/ui/dh_tabbar_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class MainRecipePage extends StatefulWidget {
+  final Function onRecipeTap;
+
+  MainRecipePage(this.onRecipeTap);
+
   @override
   _MainRecipePageState createState() => _MainRecipePageState();
 }
@@ -12,16 +16,30 @@ class MainRecipePage extends StatefulWidget {
 class _MainRecipePageState extends State<MainRecipePage> {
   String title = 'Want To Try New Recipe Today ?';
   List<String> tabsTitle = ['Malay', 'Chinese', 'Indian', 'Others'];
-  List<Widget> tabsBody = List.filled(
-      4,
-      ListView(
-        children: [
-          DHDishCard(dish: Dish(id: 1, image: dishes[0], title: titles[0])),
-          DHDishCard(dish: Dish(id: 2, image: dishes[1], title: titles[1])),
-          DHDishCard(dish: Dish(id: 3, image: dishes[0], title: titles[0])),
-          DHDishCard(dish: Dish(id: 4, image: dishes[1], title: titles[1])),
-        ],
-      ));
+  List<Widget> tabsBody = [];
+
+  @override
+  void initState() {
+    tabsBody = List.filled(
+        4,
+        ListView(
+          children: [
+            DHDishCard(
+                dish: Dish(id: 1, image: dishes[0], title: titles[0]),
+                onTap: widget.onRecipeTap),
+            DHDishCard(
+                dish: Dish(id: 2, image: dishes[1], title: titles[1]),
+                onTap: widget.onRecipeTap),
+            DHDishCard(
+                dish: Dish(id: 3, image: dishes[0], title: titles[0]),
+                onTap: widget.onRecipeTap),
+            DHDishCard(
+                dish: Dish(id: 4, image: dishes[1], title: titles[1]),
+                onTap: widget.onRecipeTap),
+          ],
+        ));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

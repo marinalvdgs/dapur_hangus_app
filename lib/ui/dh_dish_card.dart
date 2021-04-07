@@ -1,12 +1,12 @@
 import 'package:dapur_hangus_app/models/Dish.dart';
-import 'package:dapur_hangus_app/screens/details_recipe_page.dart';
 import 'package:dapur_hangus_app/theme.dart';
 import 'package:flutter/material.dart';
 
 class DHDishCard extends StatelessWidget {
   final Dish dish;
+  final Function onTap;
 
-  DHDishCard({@required this.dish});
+  DHDishCard({@required this.dish, @required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -104,10 +104,7 @@ class DHDishCard extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => DetailsRecipePage(
-                              dish: dish,
-                            )));
+                    onTap(dish);
                   },
                 ),
               ),

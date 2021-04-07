@@ -1,12 +1,14 @@
-import 'package:dapur_hangus_app/screens/desserts_recipe_page.dart';
-import 'package:dapur_hangus_app/screens/drink_recipe_page.dart';
-import 'package:dapur_hangus_app/screens/main_recipe_page.dart';
-import 'package:dapur_hangus_app/screens/soup_recipe_page.dart';
-import 'package:dapur_hangus_app/screens/vege_recipe_page.dart';
+import 'package:dapur_hangus_app/navigation/app_state.dart';
+import 'package:dapur_hangus_app/navigation/inner_route_information_parser.dart';
+import 'package:dapur_hangus_app/navigation/inner_router_delegate.dart';
 import 'package:dapur_hangus_app/ui/dh_side_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class DHSideNavigationScaffold extends StatefulWidget {
+  final RecipeAppState appState;
+
+  DHSideNavigationScaffold(this.appState);
+
   @override
   _DHSideNavigationScaffoldState createState() =>
       _DHSideNavigationScaffoldState();
@@ -21,28 +23,22 @@ const List<String> _titleList = [
 ];
 
 class _DHSideNavigationScaffoldState extends State<DHSideNavigationScaffold> {
-  int currentPage = 0;
+  InnerRouterDelegate _routerDelegate;
 
-  Widget buildBody(int index) {
-    switch (index) {
-      case 0:
-        return MainRecipePage();
-      case 1:
-        return VegeRecipePage();
-      case 2:
-        return SoupRecipePage();
-      case 3:
-        return DessertRecipePage();
-      case 4:
-        return DrinkRecipePage();
-    }
-    throw Exception('Invalid page');
+  @override
+  void initState() {
+    _routerDelegate = InnerRouterDelegate(widget.appState);
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant DHSideNavigationScaffold oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _routerDelegate.appState = widget.appState;
   }
 
   void onItemTap(int index) {
-    setState(() {
-      currentPage = index;
-    });
+    widget.appState.onTabSelected(index);
   }
 
   @override
@@ -53,9 +49,12 @@ class _DHSideNavigationScaffoldState extends State<DHSideNavigationScaffold> {
           DHSideNavigationBar(
             items: _titleList,
             onSelected: onItemTap,
-            currentIndex: currentPage,
+            currentIndex: widget.appState.selectedIndex,
           ),
-          Expanded(child: buildBody(currentPage))
+          Expanded(
+              child: Router(
+            routerDelegate: _routerDelegate,
+          ))
         ],
       ),
     );

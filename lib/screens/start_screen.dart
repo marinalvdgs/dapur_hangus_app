@@ -1,16 +1,18 @@
 import 'package:dapur_hangus_app/theme.dart';
-import 'package:dapur_hangus_app/ui/dh_side_navigation_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatefulWidget {
+  final Function onGetStartTap;
+
+  StartScreen(this.onGetStartTap);
+
   @override
   _StartScreenState createState() => _StartScreenState();
 }
 
 class _StartScreenState extends State<StartScreen> {
   void navigateToReceiptBook() {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (BuildContext context) => DHSideNavigationScaffold()));
+    widget.onGetStartTap();
   }
 
   Widget buildButton() {
